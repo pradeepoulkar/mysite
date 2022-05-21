@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+
+ {% if current_user %}
+        <a href="{% url 'logout' %}">Logout</a>
+        <hr>
+        <h2>Welcome <span style="color: dodgerblue;">{{current_user}}</span>!</h2>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <span>/</span>
+        <a href="{% url 'index' %}">Sign Up</a>
+        <hr>
+        <h2>Login to access this website!</h2>
+    {% endif %}
+    <h2>Welcome</h2>
+        {{ member}}
+{% endblock  %}

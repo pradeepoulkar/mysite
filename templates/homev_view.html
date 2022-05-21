@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+<body>
+    <form action="{% url 'home_view' %}" method="post">
+        {% csrf_token %}
+        {{data1}}
+        {% if error %}
+        <p>There is an error  {{ error }}</p>
+        {%  endif %}
+        Username : <input type="text" name="user" ><br><br>
+        Password : <input type="text" name = "pass"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+<table>
+  {% for item in objs %}
+    <tr>
+        <td>{{ item.username}}</td>
+        ...
+        <td>{{ item.password }}</td>
+    </tr>
+    {% endfor %}
+</table>
